@@ -11,7 +11,7 @@
         margin: 0;
       }
 
-      body {Saltar();
+      body {
         height: 100vh;
         background: #584040;
         display: flex;
@@ -168,6 +168,7 @@
 
       var time = new Date();
       var deltaTime = 0;
+      var element = document.getElementById("GameContenedor");
 
       if (
         document.readyState === "complete" ||
@@ -193,7 +194,6 @@
           nubes.splice(i, 1);
         }
 
-        var element = document.getElementById("GameContenedor");
         element.classList.remove("tarde");
         element.classList.remove("noche");
 
@@ -201,6 +201,8 @@
         dino.classList.add("dino-corriendo");
         dino.classList.remove("dino-estrellado");
         textoScore.innerText = score;
+
+        gameVel = 1;
 
         tiempoHastaObstaculo = 2;
         tiempoObstaculoMin = 0.7;
@@ -242,7 +244,10 @@
 
       var sueloX = 0;
       var velEscenario = 1280 / 3;
-      var gameVel = 1;
+      let gameVel = 1;
+      var _gameVel = (step) => {
+        return (element.clientWidth / 920 + step)
+      }
       var score = 0;
 
       var parado = false;
@@ -407,19 +412,18 @@
       function GanarPuntos() {
         score++;
         textoScore.innerText = score;
-        if (score == 5) {
-          gameVel = 1.5;
-        } else if (score == 15) {
-          gameVel = 2;
+        if (score == 5) gameVel = _gameVel(0.2);
+        else if (score == 15) {
+          gameVel = _gameVel(0.5);
           contenedor.classList.add("tarde");
-        } else if (score == 35) {
-          gameVel = 2.3;
-        } else if (score == 50) {
-          gameVel = 2.7;
+        } 
+        else if (score == 35) gameVel = _gameVel(0.7);
+        else if (score == 50) {
+          gameVel = _gameVel(1);
           contenedor.classList.add("noche");
-        } else if (score == 80) {
-          gameVel = 2.9;
-        }
+        } 
+        else if (score == 60) gameVel = _gameVel(1.2);
+        else if (score == 80) gameVel = _gameVel(1.3);
         suelo.style.animationDuration = 3 / gameVel + "s";
       }
 
