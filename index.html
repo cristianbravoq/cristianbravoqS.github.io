@@ -140,8 +140,8 @@
         flex-direction: column;
         text-align: center;
         color: black;
-        border: 1px solid #85797991;
-        background: #857979b6;
+        border: 1px solid #dad0d0da;
+        background: #dad0d0ee;
         font-family: "Roboto Condensed", sans-serif;
         font-size: 30px;
         font-weight: 700;
@@ -170,13 +170,17 @@
       .game-over > button:hover {
         background: #c01414;
       }
-      h3 {
+      .game-over > h3 {
         font-size: 0.7em;
+        color: #c01414;
+      }
+      #CantidadGanador, #LabelGanador, .linkTiendaOficial {
+        color: #c01414;
       }
       .loser {
         width: 300px;
         padding: 0.2em 0;
-        border: 1px solid #85797991;
+        border: 1px solid #dad0d0ee;
         border-radius: 0.2em;
       }
     </style>
@@ -195,7 +199,7 @@
         Tienes un <strong id="CantidadGanador"></strong> puedes que puedes
         redimir con el código <strong id="LabelGanador"></strong> Nuestro sitio
         web:
-        <a href="https://www.speedocolombia.com/"
+        <a class="linkTiendaOficial" href="https://www.speedocolombia.com/"
           >http://www.speedocolombia.com</a
         >
       </p>
@@ -485,34 +489,34 @@
           gameOverLoser.style.display = "flex";
         }
         if (score > 10) {
-          codigoDescuento = "OSURF10";
+          codigoDescuento = "JNADADOR10";
           cantidaDescuento = "10% Dcto";
-          gameOver.style.display = "flex";
           gameOverLoser.style.display = "none";
+          gameOver.style.display = "flex";
         }
         if (score > 15) {
-          codigoDescuento = "OSURF15";
+          codigoDescuento = "JNADADOR15";
           cantidaDescuento = "15% Dcto";
-          gameOver.style.display = "flex";
           gameOverLoser.style.display = "none";
+          gameOver.style.display = "flex";
         }
         if (score > 20) {
-          codigoDescuento = "OSURF20";
+          codigoDescuento = "JNADADOR20";
           cantidaDescuento = "20% Dcto";
-          gameOver.style.display = "flex";
           gameOverLoser.style.display = "none";
+          gameOver.style.display = "flex";
         }
         if (score > 25) {
-          codigoDescuento = "OSURF25";
+          codigoDescuento = "JNADADOR25";
           cantidaDescuento = "25% Dcto";
-          gameOver.style.display = "flex";
           gameOverLoser.style.display = "none";
+          gameOver.style.display = "flex";
         }
         if (score > 30) {
-          codigoDescuento = "OSURF30";
+          codigoDescuento = "JNADADOR30";
           cantidaDescuento = "30% Dcto";
-          gameOver.style.display = "flex";
           gameOverLoser.style.display = "none";
+          gameOver.style.display = "flex";
         }
         labelGanador.innerText = codigoDescuento;
         cantidadGanador.innerText = cantidaDescuento;
